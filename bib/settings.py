@@ -22,10 +22,10 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 #CARGAR .ENV LOCAL
-    try:
+try:
         from dotenv import load_dotenv
         load_dotenv(os.path.join(BASE_DIR, '.env'))
-    except Exception
+except Exception:
     pass
 
 
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'bib.wsgi.application'
 
 #USAR PYMYSQL
 
-if os.getenv("USE_PYMYSQL","0" == "1":
+if os.getenv("USE_PYMYSQL","0" == "1"):
     import pymysql
     pymysql.install_as_MySQLdb()
 
@@ -152,6 +152,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_FILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
